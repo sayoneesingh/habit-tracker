@@ -20,21 +20,4 @@ public class HabitService {
     public Habit createHabit(Habit habit) {
         return habitRepository.save(habit);
     }
-
-    public Habit updateHabit(Long id,Habit updatedHabit){
-        return habitRepository.findById(id).map(habit -> {
-            habit.setName(updatedHabit.getName());
-            habit.setDescription(updatedHabit.getDescription());
-            habit.setActive(updatedHabit.isActive());
-            return habitRepository.save(habit);
-        }).orElseThrow(() -> new RuntimeException("Invalid id : "+id));
-    }
-
-    public void deleteHabit(Long id){
-        if(!habitRepository.existsById(id)){
-            throw new RuntimeException("Invalid id :"+id);
-        }
-
-        habitRepository.deleteById(id);
-    }
 }
