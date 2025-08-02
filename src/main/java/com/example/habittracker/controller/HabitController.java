@@ -23,4 +23,14 @@ public class HabitController {
     public Habit createHabit(@RequestBody Habit habit) {
         return habitService.createHabit(habit);
     }
+
+    @PutMapping("/{id}")
+    public Habit updateHabit(@PathVariable Long id, @RequestBody Habit habit){
+        return habitService.updateHabit(id,habit);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteHabit(@PathVariable Long id){
+        habitService.deleteHabit(id);
+    }
 }
