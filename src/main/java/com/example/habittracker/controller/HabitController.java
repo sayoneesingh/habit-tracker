@@ -2,6 +2,7 @@ package com.example.habittracker.controller;
 
 import com.example.habittracker.model.Habit;
 import com.example.habittracker.service.HabitService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,11 +11,8 @@ import java.util.List;
 @RequestMapping("/api/habits")
 public class HabitController {
 
-    private final HabitService habitService;
-
-    public HabitController(HabitService habitService) {
-        this.habitService = habitService;
-    }
+    @Autowired
+    private HabitService habitService;
 
     @GetMapping
     public List<Habit> getAllHabits() {
