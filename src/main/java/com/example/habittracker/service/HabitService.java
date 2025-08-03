@@ -2,6 +2,7 @@ package com.example.habittracker.service;
 
 import com.example.habittracker.dto.HabitRequestDTO;
 import com.example.habittracker.dto.HabitResponseDTO;
+import com.example.habittracker.exception.ResourceNotFoundException;
 import com.example.habittracker.model.Habit;
 import com.example.habittracker.repository.HabitRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,12 +34,12 @@ public class HabitService {
             habit.setDescription(updatedHabit.getDescription());
             habit.setActive(updatedHabit.isActive());
             return toResponseDTO(habitRepository.save(habit));
-        }).orElseThrow(() -> new RuntimeException("Invalid id : " + id));
+        }).orElseThrow(() -> new ResourceNotFoundException("Invalid id : " + id));
     }
 
     public void deleteHabit(Long id) {
         if (!habitRepository.existsById(id)) {
-            throw new RuntimeException("Invalid id :" + id);
+            throw new ResourceNotFoundException("Invalid id :" + id);
         }
 
         habitRepository.deleteById(id);
