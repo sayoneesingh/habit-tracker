@@ -1,0 +1,39 @@
+{
+	"info": {
+		"_postman_id": "fc9a03b4-90eb-4952-8fee-aeb570e5df9b",
+		"name": "Habit Tracker Application",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7028992"
+	},
+	"item": [
+		{
+			"name": "Create Habit",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Sleep by 11 PM\",\r\n  \"description\": \"Daily bedtime goal\",\r\n  \"active\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/habits",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"habits"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
